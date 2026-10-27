@@ -40,16 +40,123 @@
   background: #334155;
 }
 
-/* Custom print style for Resume view */
+/* =========================================================================
+   COMPREHENSIVE PRINT & PDF EXPORT STYLES
+   Ensures the resume prints cleanly across all browsers and devices
+   ========================================================================= */
+
+@page {
+  size: A4 portrait;
+  margin: 12mm 14mm 12mm 14mm;
+}
+
 @media print {
-  body {
-    background-color: white !important;
-    color: black !important;
+  /* 1. Global Reset for Print Output */
+  html, body {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+    font-size: 10.5pt !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
+
+  /* 2. Hide everything in the page except the resume document */
+  header,
+  nav,
+  main,
+  footer,
+  #floating-terminal-btn,
   .no-print {
     display: none !important;
   }
-  .print-only {
+
+  /* 3. Reset the modal overlay and card to normal document flow */
+  .resume-modal-overlay {
+    position: static !important;
+    inset: auto !important;
     display: block !important;
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+
+  .resume-modal-card {
+    position: static !important;
+    display: block !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .resume-modal-content {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 4. Page Break Controls - Avoid awkward splitting of sections */
+  .resume-section-item {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .resume-header {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .resume-section-title {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* 5. Ensure high-contrast colors and borders print clearly */
+  .print-text-dark {
+    color: #0f172a !important;
+  }
+
+  .print-text-muted {
+    color: #334155 !important;
+  }
+
+  .print-text-accent {
+    color: #0369a1 !important;
+  }
+
+  .print-border {
+    border-color: #cbd5e1 !important;
   }
 }
+

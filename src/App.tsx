@@ -20,13 +20,15 @@ export default function App() {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans relative selection:bg-cyan-500/20 selection:text-cyan-300">
       
       {/* Top Navbar */}
-      <Navbar 
-        onOpenResume={() => setIsResumeOpen(true)} 
-        onOpenTerminal={() => setIsTerminalOpen(true)} 
-      />
+      <div className="no-print">
+        <Navbar 
+          onOpenResume={() => setIsResumeOpen(true)} 
+          onOpenTerminal={() => setIsTerminalOpen(true)} 
+        />
+      </div>
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 no-print">
         <Hero 
           onOpenResume={() => setIsResumeOpen(true)} 
           onOpenTerminal={() => setIsTerminalOpen(true)} 
@@ -48,10 +50,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer 
-        onOpenResume={() => setIsResumeOpen(true)} 
-        onOpenTerminal={() => setIsTerminalOpen(true)} 
-      />
+      <div className="no-print">
+        <Footer 
+          onOpenResume={() => setIsResumeOpen(true)} 
+          onOpenTerminal={() => setIsTerminalOpen(true)} 
+        />
+      </div>
 
       {/* Interactive Modals */}
       <ResumeModal 
